@@ -39,8 +39,44 @@ class _MyHomePageState extends State<MyHomePage> {
           _safeAreaListTile(status: false),
           _safeAreaListTile(status: true),
           _sectionDivider(),
+          _sectionTypeListTile('Expanded'),
+          _normalRow(),
+          _expandedRow(),
+          _sectionDivider(),
         ],
       ),
+    );
+  }
+
+  Row _normalRow() {
+    return Row(
+      children: <Widget>[
+        Text('Left Text'),
+        Text(
+          'Right Text',
+          style: TextStyle(color: Colors.blue),
+        )
+      ],
+    );
+  }
+
+  Row _expandedRow() {
+    return Row(
+      children: <Widget>[
+        Text('Left Text'),
+        Expanded(
+            child: Container(
+          decoration: BoxDecoration(
+              color: Colors.blueAccent,
+              border: Border.all(style: BorderStyle.solid, color: Colors.red)),
+          child: Center(
+            child: Text('蓝色Expanded'),
+          ),
+          // color 不能和 decoration 同时使用
+          // color: Colors.blueGrey,
+        )),
+        Text('Right Text')
+      ],
     );
   }
 
