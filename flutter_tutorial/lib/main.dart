@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'SafeArea/qi_listView_safeArea.dart';
+import 'qi_warp.dart';
+
+enum LearningWidgetType {
+  SafeArea,
+  Expanded,
+  Wrap,
+}
 
 void main() => runApp(MyApp());
 
@@ -52,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _normalDivider(),
           _expandedRow4(),
           _sectionDivider(),
+          _sectionTypeListTile('Wrap', widgetType: LearningWidgetType.Wrap),
         ],
       ),
     );
@@ -97,7 +105,11 @@ class _MyHomePageState extends State<MyHomePage> {
         //   // color 不能和 decoration 同时使用
         //   // color: Colors.blueGrey,
         // )),
-        Expanded(child: Container(color: Colors.red, height: 20.0,)),
+        Expanded(
+            child: Container(
+          color: Colors.red,
+          height: 20.0,
+        )),
         Container(
           width: 150.0,
           child: Text(
@@ -116,9 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           width: 200.0,
           child: Text(
-          '2.Expanded Row LeftText',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-        ),
+            '2.Expanded Row LeftText',
+            style:
+                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+          ),
         ),
         Expanded(
             child: Container(
@@ -181,9 +194,10 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           width: 200.0,
           child: Text(
-          '3.2 ExpandedRow LeftText',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-        ),
+            '3.2 ExpandedRow LeftText',
+            style:
+                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+          ),
         ),
         Expanded(
             flex: 2,
@@ -225,9 +239,10 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           width: 200.0,
           child: Text(
-          '4.Expanded Row',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-        ),
+            '4.Expanded Row',
+            style:
+                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+          ),
         ),
         Expanded(
             flex: 1,
@@ -397,7 +412,20 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  Widget _sectionTypeListTile(String title) {
+  // Widget _sectionTypeListTile(String title, LearningWidgetType type) {
+  //   return ListTile(
+  //     title: Text(
+  //       title,
+  //       style: TextStyle(
+  //           backgroundColor: Colors.grey,
+  //           fontStyle: FontStyle.italic,
+  //           color: Colors.white,
+  //           fontSize: 60.0),
+  //     ),
+  //   );
+  // }
+
+  Widget _sectionTypeListTile(String title, {LearningWidgetType widgetType}) {
     return ListTile(
       title: Text(
         title,
@@ -407,6 +435,15 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.white,
             fontSize: 60.0),
       ),
+      onTap: () {
+        switch (widgetType) {
+          case LearningWidgetType.Wrap:
+            Navigator.push(context,
+                MaterialPageRoute(builder: (BuildContext context) => QiWrap()));
+            break;
+          default:
+        }
+      },
     );
   }
 
