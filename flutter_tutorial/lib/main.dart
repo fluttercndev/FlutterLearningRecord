@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'SafeArea/qi_listView_safeArea.dart';
-import 'qi_warp.dart';
+import 'Wrap/qi_warp.dart';
+import 'AnimatedContainer/qi_AnimatedContainer.dart';
 
 enum LearningWidgetType {
   SafeArea,
   Expanded,
   Wrap,
+  AnimatedContainer,
 }
 
 void main() => runApp(MyApp());
@@ -60,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
           _expandedRow4(),
           _sectionDivider(),
           _sectionTypeListTile('Wrap', widgetType: LearningWidgetType.Wrap),
+          _sectionTypeListTile('AnimatedContainer',
+              widgetType: LearningWidgetType.AnimatedContainer),
         ],
       ),
     );
@@ -440,6 +444,12 @@ class _MyHomePageState extends State<MyHomePage> {
           case LearningWidgetType.Wrap:
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) => QiWrap()));
+            break;
+          case LearningWidgetType.AnimatedContainer:
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => QiAnimatedContainer()));
             break;
           default:
         }
