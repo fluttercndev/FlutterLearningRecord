@@ -3,6 +3,7 @@ import 'SafeArea/qi_listView_safeArea.dart';
 import 'Wrap/qi_warp.dart';
 import 'AnimatedContainer/qi_AnimatedContainer.dart';
 import 'Opacity/qi_opacity.dart';
+import 'FutureBuilder/qi_futureBuilder.dart';
 
 enum LearningWidgetType {
   SafeArea,
@@ -10,6 +11,7 @@ enum LearningWidgetType {
   Wrap,
   AnimatedContainer,
   Opacity,
+  FutureBuilder,
 }
 
 void main() => runApp(MyApp());
@@ -68,6 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
               widgetType: LearningWidgetType.AnimatedContainer),
           _sectionTypeListTile('Opacity',
               widgetType: LearningWidgetType.Opacity),
+          _sectionTypeListTile('FutureBuilder',
+              widgetType: LearningWidgetType.FutureBuilder),
         ],
       ),
     );
@@ -455,9 +459,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(
                     builder: (BuildContext context) => QiAnimatedContainer()));
             break;
-            case LearningWidgetType.Opacity: {
-                Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context) => QiOpacity()));
+          case LearningWidgetType.Opacity: {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => QiOpacity()));
             }
+          break;
+          case LearningWidgetType.FutureBuilder: {
+            Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => QiFutureBuilder()));
+          }
+            break;
             break;
           default:
         }
