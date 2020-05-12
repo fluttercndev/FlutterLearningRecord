@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'SafeArea/qi_listView_safeArea.dart';
+import 'SafeArea/qi_safeAreaEntrance.dart';
+import 'Expanded/qi_expanded.dart';
 import 'Wrap/qi_warp.dart';
 import 'AnimatedContainer/qi_AnimatedContainer.dart';
 import 'Opacity/qi_opacity.dart';
 import 'FutureBuilder/qi_futureBuilder.dart';
+
+// 业务代码
+import 'PersonalInfo/qi_personalInfo.dart';
 
 enum LearningWidgetType {
   SafeArea,
@@ -12,6 +16,7 @@ enum LearningWidgetType {
   AnimatedContainer,
   Opacity,
   FutureBuilder,
+  UnchangedPersonalInfo,
 }
 
 void main() => runApp(MyApp());
@@ -48,257 +53,27 @@ class _MyHomePageState extends State<MyHomePage> {
       // body: Center(child: otherColumn(),),
       body: ListView(
         children: <Widget>[
-          _sectionTypeListTile('SafeArea'),
+          _sectionTypeListTile('SafeArea',
+              widgetType: LearningWidgetType.SafeArea),
           _normalDivider(),
-          _safeAreaListTile(status: false),
-          _safeAreaListTile(status: true),
-          _sectionDivider(),
-          _sectionTypeListTile('Expanded'),
-          _normalRow(),
+          _sectionTypeListTile('Expanded',
+              widgetType: LearningWidgetType.Expanded),
           _normalDivider(),
-          _expandedRow1(),
-          _normalDivider(),
-          _expandedRow2(),
-          _normalDivider(),
-          _expandedRow3(),
-          _expandedRow32(),
-          _normalDivider(),
-          _expandedRow4(),
-          _sectionDivider(),
           _sectionTypeListTile('Wrap', widgetType: LearningWidgetType.Wrap),
+          _normalDivider(),
           _sectionTypeListTile('AnimatedContainer',
               widgetType: LearningWidgetType.AnimatedContainer),
+          _normalDivider(),
           _sectionTypeListTile('Opacity',
               widgetType: LearningWidgetType.Opacity),
+          _normalDivider(),
           _sectionTypeListTile('FutureBuilder',
               widgetType: LearningWidgetType.FutureBuilder),
+          _normalDivider(),
+          _sectionTypeListTile('UnchangedPersonalInfo',
+              widgetType: LearningWidgetType.UnchangedPersonalInfo),
         ],
       ),
-    );
-  }
-
-  Row _normalRow() {
-    return Row(
-      children: <Widget>[
-        Text(
-          '0. Normal Row',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-        ),
-        Text(
-          'Right Text',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.yellow),
-        ),
-      ],
-    );
-  }
-
-  Row _expandedRow1() {
-    return Row(
-      children: <Widget>[
-        Container(
-          width: 212.0,
-          child: Text(
-            '1. ExpandedRow LeftText',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        // Expanded(
-        //     child: Container(
-        //   decoration: BoxDecoration(
-        //       color: Colors.blueAccent,
-        //       border: Border.all(style: BorderStyle.solid, color: Colors.red)),
-        //   child: Center(
-        //     child: Text(
-        //       '蓝色Expanded',
-        //       style: TextStyle(color: Colors.white),
-        //     ),
-        //   ),
-        //   // color 不能和 decoration 同时使用
-        //   // color: Colors.blueGrey,
-        // )),
-        Expanded(
-            child: Container(
-          color: Colors.red,
-          height: 20.0,
-        )),
-        Container(
-          width: 150.0,
-          child: Text(
-            'Right Text',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        )
-      ],
-    );
-  }
-
-  Row _expandedRow2() {
-    return Row(
-      children: <Widget>[
-        Container(
-          width: 200.0,
-          child: Text(
-            '2.Expanded Row LeftText',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        Expanded(
-            child: Container(
-          child: Center(child: Text('黄色Expanded')),
-          height: 20.0,
-          color: Colors.yellow,
-        )),
-        Text(
-          'Right Text',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-        )
-      ],
-    );
-  }
-
-  Row _expandedRow3() {
-    return Row(
-      children: <Widget>[
-        Text(
-          '3.LeftText',
-          style: TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-        ),
-        Expanded(
-            flex: 2,
-            child: Container(
-              height: 20.0,
-              color: Colors.yellow,
-            )),
-        Container(
-          width: 100.0,
-          height: 50.0,
-          child: Text(
-            'C',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        Expanded(
-            flex: 1,
-            child: Container(
-              height: 20.0,
-              color: Colors.yellow,
-            )),
-        Container(
-          width: 100.0,
-          height: 50.0,
-          child: Text(
-            'Right',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Row _expandedRow32() {
-    return Row(
-      children: <Widget>[
-        Container(
-          width: 200.0,
-          child: Text(
-            '3.2 ExpandedRow LeftText',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        Expanded(
-            flex: 2,
-            child: Container(
-              height: 20.0,
-              color: Colors.yellow,
-            )),
-        Container(
-          width: 100.0,
-          height: 50.0,
-          child: Text(
-            'C',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        Expanded(
-            flex: 1,
-            child: Container(
-              height: 20.0,
-              color: Colors.yellow,
-            )),
-        Container(
-          width: 100.0,
-          height: 50.0,
-          child: Text(
-            'Right',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Row _expandedRow4() {
-    return Row(
-      children: <Widget>[
-        Container(
-          width: 200.0,
-          child: Text(
-            '4.Expanded Row',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        Expanded(
-            flex: 1,
-            child: Container(
-              height: 20.0,
-              color: Colors.yellow,
-            )),
-        Container(
-          width: 100.0,
-          height: 50.0,
-          child: Text(
-            'C',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-        Expanded(
-            flex: 1,
-            child: Container(
-              height: 20.0,
-              color: Colors.yellow,
-            )),
-        Container(
-          width: 100.0,
-          height: 50.0,
-          child: Text(
-            'Right',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
-          ),
-        ),
-      ],
-    );
-  }
-
-  ListView safeArea() {
-    return ListView(
-      children: <Widget>[
-        // _sectionTypeListTile('SafeArea'),
-        // _normalDivider(),
-        // _safeAreaListTile(status: false),
-        // _safeAreaListTile(status: true),
-        // _sectionDivider(),
-      ],
     );
   }
   // Column _normalColumn() {
@@ -398,57 +173,34 @@ class _MyHomePageState extends State<MyHomePage> {
   //   );
   // }
 
-  Widget _safeAreaListTile({bool status}) {
-    void pushToSafeAreaPage(bool status) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (BuildContext context) =>
-                  QiListViewSafeArea(enableSafeArea: status)));
-    }
-
-    if (status) {
-      return ListTile(
-        title: Text('带有 SafeArea 的页面'),
-        onTap: () {
-          pushToSafeAreaPage(true);
-        },
-      );
-    } else {
-      return ListTile(
-        title: Text('不带 SafeArea 的页面'),
-        onTap: () {
-          pushToSafeAreaPage(false);
-        },
-      );
-    }
-  }
-
-  // Widget _sectionTypeListTile(String title, LearningWidgetType type) {
-  //   return ListTile(
-  //     title: Text(
-  //       title,
-  //       style: TextStyle(
-  //           backgroundColor: Colors.grey,
-  //           fontStyle: FontStyle.italic,
-  //           color: Colors.white,
-  //           fontSize: 60.0),
-  //     ),
-  //   );
-  // }
-
   Widget _sectionTypeListTile(String title, {LearningWidgetType widgetType}) {
     return ListTile(
       title: Text(
-        title,
+        '${widgetType.index}$title',
         style: TextStyle(
             backgroundColor: Colors.grey,
             fontStyle: FontStyle.italic,
             color: Colors.white,
-            fontSize: 60.0),
+            fontSize: 40.0),
       ),
       onTap: () {
         switch (widgetType) {
+          case LearningWidgetType.SafeArea:
+            {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => QiSafeAreaEntrance()));
+            }
+            break;
+          case LearningWidgetType.Expanded:
+            {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => QiExpanded()));
+            }
+            break;
           case LearningWidgetType.Wrap:
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) => QiWrap()));
@@ -459,16 +211,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(
                     builder: (BuildContext context) => QiAnimatedContainer()));
             break;
-          case LearningWidgetType.Opacity: {
+          case LearningWidgetType.Opacity:
+            {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => QiOpacity()));
             }
-          break;
-          case LearningWidgetType.FutureBuilder: {
-            Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => QiFutureBuilder()));
-          }
             break;
+          case LearningWidgetType.FutureBuilder:
+            {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => QiFutureBuilder()));
+            }
+            break;
+          case LearningWidgetType.UnchangedPersonalInfo:
+            {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => PersonalUnchangedInfo()));
+            }
             break;
           default:
         }
@@ -478,12 +237,5 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _normalDivider() {
     return Divider();
-  }
-
-  Widget _sectionDivider() {
-    return Divider(
-      height: 2.0,
-      color: Colors.blue,
-    );
   }
 }

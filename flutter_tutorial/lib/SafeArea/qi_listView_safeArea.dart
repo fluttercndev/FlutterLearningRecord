@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+String appBarText = '带SafeArea的页面';
+
 class QiListViewSafeArea extends StatefulWidget {
   // 控制是否启用 safeArea
   final bool enableSafeArea;
@@ -15,8 +17,10 @@ class QiListViewSafeArea extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     if (this.enableSafeArea) {
+      appBarText = '带SafeArea的页面';
       return _QiListSafeAreaState();
     } else {
+      appBarText = '不带SafeArea的页面';
       return _QiListDisableSafeAreaState();
     }
   }
@@ -47,6 +51,9 @@ class _QiListSafeAreaState extends State<QiListViewSafeArea> {
           Navigator.pop(context);
         },
       ),
+      // appBar: AppBar(
+      //   title: Text(appBarText),
+      // ),
       body: SafeArea(
         child: ListView(
           children: <Widget>[
@@ -89,6 +96,9 @@ class _QiListDisableSafeAreaState extends State<QiListViewSafeArea> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   title: Text(appBarText),
+      // ),
       body: ListView(
         children: <Widget>[
           _randomColorContainer(),
