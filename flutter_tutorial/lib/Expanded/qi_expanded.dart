@@ -45,6 +45,7 @@ class QiExpanded extends StatelessWidget {
     return Row(
       children: <Widget>[
         Container(
+          color: Colors.blue,
           width: 212.0,
           child: Text(
             '1. ExpandedRow LeftText',
@@ -88,10 +89,14 @@ class QiExpanded extends StatelessWidget {
       children: <Widget>[
         Container(
           width: 200.0,
+          color: Colors.blue,
           child: Text(
-            '2.Expanded Row LeftText',
-            style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+            '2.ExpandedRowLeftText',
+            maxLines: 2,
+            style: TextStyle(
+              fontSize: 32.0,
+              backgroundColor: Colors.greenAccent,
+            ),
           ),
         ),
         Expanded(
@@ -122,7 +127,9 @@ class QiExpanded extends StatelessWidget {
               color: Colors.yellow,
             )),
         Container(
+          color: Colors.blue,
           width: 100.0,
+          // width: 10.0,
           height: 50.0,
           child: Text(
             'C',
@@ -167,6 +174,7 @@ class QiExpanded extends StatelessWidget {
               color: Colors.yellow,
             )),
         Container(
+          color: Colors.blue,
           width: 100.0,
           height: 50.0,
           child: Text(
@@ -199,6 +207,7 @@ class QiExpanded extends StatelessWidget {
       children: <Widget>[
         Container(
           width: 200.0,
+          color: Colors.blue,
           child: Text(
             '4.Expanded Row',
             style:
@@ -212,6 +221,7 @@ class QiExpanded extends StatelessWidget {
               color: Colors.yellow,
             )),
         Container(
+          color: Colors.blue,
           width: 100.0,
           height: 50.0,
           child: Text(
@@ -257,7 +267,8 @@ class QiExpanded extends StatelessWidget {
             ),
             width: 100.0,
             height: 50.0,
-            decoration: BoxDecoration(color: Colors.blue),
+            color: Colors.red,
+            // decoration: BoxDecoration(color: Colors.blue),
           ),
           width: 50.0,
         ),
