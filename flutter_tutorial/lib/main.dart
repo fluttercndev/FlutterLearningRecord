@@ -176,12 +176,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _sectionTypeListTile(String title, {LearningWidgetType widgetType}) {
     return ListTile(
       title: Text(
-        '${widgetType.index}$title',
+        '${widgetType.index}. $title',
         style: TextStyle(
             backgroundColor: Colors.grey,
             fontStyle: FontStyle.italic,
             color: Colors.white,
-            fontSize: 40.0),
+            fontSize: 32.0),
       ),
       onTap: () {
         switch (widgetType) {

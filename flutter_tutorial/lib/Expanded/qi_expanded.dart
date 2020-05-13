@@ -21,6 +21,7 @@ class QiExpanded extends StatelessWidget {
           _expandedRow4(),
           _sectionDivider(),
           _fixedSizedBoxRow(),
+          _fixedSizedBoxRow2(),
         ],
       ),
     );
@@ -280,6 +281,63 @@ class QiExpanded extends StatelessWidget {
             style:
                 TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
           ),
+        ),
+      ],
+    );
+  }
+
+  Row _fixedSizedBoxRow2() {
+    return Row(
+      children: <Widget>[
+        Container(
+          child: Text(
+            '6.Fill FixedSize Box',
+            style:
+                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.yellow,
+            width: 200.0,
+            height: 50.0,
+          ),
+        ),
+        // SizedBox(
+        //   child: Container(
+        //     child: Text(
+        //       '20',
+        //       style: TextStyle(color: Colors.white),
+        //     ),
+        //     width: 30.0,
+        //     height: 50.0,
+        //     color: Colors.red,
+        //     // decoration: BoxDecoration(color: Colors.blue),
+        //   ),
+        //   width: 20.0,
+        // ),
+        Container(
+          width: 100.0,
+          height: 50.0,
+          child: Text(
+            'Right',
+            style:
+                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+          ),
+          color: Colors.blue,
+        ),
+        SizedBox(
+          child: Container(
+            child: Text(
+              '20',
+              style: TextStyle(color: Colors.white),
+            ),
+            width: 30.0,
+            height: 50.0,
+            color: Colors.red,
+            // decoration: BoxDecoration(color: Colors.blue),
+          ),
+          width: 20.0,
         ),
       ],
     );
