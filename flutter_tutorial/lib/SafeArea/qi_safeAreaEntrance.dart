@@ -37,6 +37,7 @@ class QiSafeAreaEntrance extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           _safeAreaListTile(context, status: false),
+          Divider(),
           _safeAreaListTile(context, status: true),
         ],
       ),

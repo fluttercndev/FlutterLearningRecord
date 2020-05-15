@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter 学习记录'),
+      home: MyHomePage(title: 'Flutter 学习记录+学习记录'),
     );
   }
 }
