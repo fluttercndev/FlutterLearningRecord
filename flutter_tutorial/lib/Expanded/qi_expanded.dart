@@ -75,6 +75,7 @@ class QiExpanded extends StatelessWidget {
         )),
         Container(
           width: 150.0,
+          color: Colors.blue,
           child: Text(
             'Right Text',
             style:
@@ -191,12 +192,12 @@ class QiExpanded extends StatelessWidget {
               color: Colors.yellow,
             )),
         Container(
-          width: 100.0,
+          width: 50.0,
           height: 50.0,
           child: Text(
             'Right',
             style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+                TextStyle(fontSize: 20.0, backgroundColor: Colors.greenAccent),
           ),
         ),
       ],
@@ -238,12 +239,12 @@ class QiExpanded extends StatelessWidget {
               color: Colors.yellow,
             )),
         Container(
-          width: 100.0,
+          width: 50.0,
           height: 50.0,
           child: Text(
             'Right',
             style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+                TextStyle(fontSize: 20.0, backgroundColor: Colors.greenAccent),
           ),
         ),
       ],
@@ -263,7 +264,7 @@ class QiExpanded extends StatelessWidget {
         SizedBox(
           child: Container(
             child: Text(
-              '固定宽度50.0',
+              '20',
               style: TextStyle(color: Colors.white),
             ),
             width: 100.0,
@@ -271,10 +272,10 @@ class QiExpanded extends StatelessWidget {
             color: Colors.red,
             // decoration: BoxDecoration(color: Colors.blue),
           ),
-          width: 50.0,
+          width: 20.0,
         ),
         Container(
-          width: 100.0,
+          width: 50.0,
           height: 50.0,
           child: Text(
             'Right',
@@ -317,12 +318,12 @@ class QiExpanded extends StatelessWidget {
         //   width: 20.0,
         // ),
         Container(
-          width: 100.0,
+          width: 50.0,
           height: 50.0,
           child: Text(
             'Right',
             style:
-                TextStyle(fontSize: 32.0, backgroundColor: Colors.greenAccent),
+                TextStyle(fontSize: 20.0, backgroundColor: Colors.greenAccent),
           ),
           color: Colors.blue,
         ),
